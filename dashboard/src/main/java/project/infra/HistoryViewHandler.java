@@ -28,12 +28,12 @@ public class HistoryViewHandler {
             History history = new History();
             // view 객체에 이벤트의 Value 를 set 함
             history.setId(reservationCreated.getId());
-            history.setProdName(reservationCreated.getProdName());
+            history.setProduct(reservationCreated.getProduct());
             history.setTotPrice(0);
-            history.setEnrolDate(reservationCreated.getEnrolDate());
-            history.setCompNo(reservationCreated.getCompNo());
+            history.setEnrolDate(reservationCreated.getEnrol_date());
+            // history.setCompNo(reservationCreated.getCompNo());
             history.setCateogry(reservationCreated.getCategory());
-            history.setSubCategory(reservationCreated.getSubCategory());
+            history.setSubCategory(reservationCreated.getSub_category());
             history.setRequest(reservationCreated.getRequest());
             history.setCustomerFeedback("");
             history.setManagerReport("");
@@ -57,9 +57,9 @@ public class HistoryViewHandler {
                  History history = historyOptional.get();
             // view 객체에 이벤트의 eventDirectValue 를 set 함
                 history.setTotPrice(0);    
-                history.setEnrolDate(reservationModified.getEnrolDate());    
+                history.setEnrolDate(reservationModified.getEnrol_date());    
                 history.setCateogry(reservationModified.getCategory());    
-                history.setSubCategory(reservationModified.getSubCategory());    
+                history.setSubCategory(reservationModified.getSub_category());    
                 history.setRequest(reservationModified.getRequest());    
                 history.setProduct(reservationModified.getProduct());    
                 // view 레파지 토리에 save
@@ -101,7 +101,7 @@ public class HistoryViewHandler {
             if( historyOptional.isPresent()) {
                  History history = historyOptional.get();
             // view 객체에 이벤트의 eventDirectValue 를 set 함
-                history.setCustomerFeedback(feedbackModified.getCustomerFeedback());    
+                history.setCustomerFeedback(feedbackModified.getContent());    
                 // view 레파지 토리에 save
                  historyRepository.save(history);
                 }
